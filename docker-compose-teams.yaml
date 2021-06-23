@@ -258,13 +258,14 @@ services:
     image: tritonsrcsc/triton-software:latest
     user: "1000"
     restart: unless-stopped
-    mem_limit: "${TEAM_LIMIT_MEM}"
-    cpus: "${TEAM_LIMIT_CPU}"
+    mem_limit: "16g"
+    cpus: "4"
     environment:
       SSH_PUBLIC_KEY:
       VNC_PW:
     volumes:
       - team-tritons-data:/home/default:rw
+      - /home/zht/erforce/TritonsRCSC-Software-Pack:/home/default/TritonsRCSC-Software-Pack
     ports:
       - 5901/tcp
       - 2222/tcp
